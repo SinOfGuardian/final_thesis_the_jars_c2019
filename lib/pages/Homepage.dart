@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:final_thesis_the_jars_c2019/database/DatabaseManager.dart';
 import 'package:final_thesis_the_jars_c2019/readData/get_categories.dart';
@@ -20,8 +22,13 @@ class HomePage extends StatefulWidget{
 // Product shirtdata;
 // Product Suitdata;
 class _HomePageState extends State<HomePage>{
-  
+    List Products = [];
   List categoriesIDs = [];
+   var _firestoreInstance = FirebaseFirestore.instance;
+
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _descriptionController = TextEditingController();
+  TextEditingController _priceController = TextEditingController();
 
   Future getcategoriesIDs() async{
     
@@ -38,37 +45,62 @@ class _HomePageState extends State<HomePage>{
       
   }
   
-   @override
+  
+
+ 
+  
+
+   fetchProducts() async{
+
+    QuerySnapshot productget = 
+    await _firestoreInstance.collection("product").get();
+    setState(() {
+      for (int i = 0; i < productget.docs.length; i++){
+        Products.add(
+          {
+            
+            "description":productget.docs[i]['description'],
+            "image":productget.docs[i]['image'],
+            "name":productget.docs[i]['name'],
+            "price":productget.docs[i]['price'],
+
+          //             productget.docs[i]["description"],
+          // productget.docs[i]["image"],
+          // productget.docs[i]["name"],
+          // productget.docs[i]["price"],
+          }
+        );
+       print(productget.docs[i]["image"]);
+      }
+    });
+    return productget.docs;
+  }
+
+
+  // List productitemList = [];
+  // fetchDatabaseList() async{
+  //   dynamic resultant = await DatabaseManager().getUsersList();
+     
+  //    if (resultant == null){
+  //     print("Unable to retrieve");
+  //    }else{
+  //     setState(() {
+  //       productitemList = resultant;
+  //     });
+      
+  //    }
+  // }
+
+ @override
   void initState(){
     getcategoriesIDs();
     //fetchcategories();
-     fetchDatabaseList();
+     //fetchDatabaseList();
+
+     fetchProducts();
     //TODO: implement initState
     super.initState();
   }
-
-  var _firestoreInstance = FirebaseFirestore.instance;
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _descriptionController = TextEditingController();
-  TextEditingController _priceController = TextEditingController();
-
-  List productitemList = [];
-
-
-  fetchDatabaseList() async{
-    dynamic resultant = await DatabaseManager().getUsersList();
-     
-     if (resultant == null){
-      print("Unable to retrieve");
-     }else{
-      setState(() {
-        productitemList = resultant;
-      });
-      
-     }
-  }
-
-
 
  
 
@@ -280,8 +312,13 @@ class _HomePageState extends State<HomePage>{
           //       ),
           //     );
           //   }),
-     ItemsWidget(),
+     //ItemsWidget(),
+      //eaannasnnnsndnaknldsjncovnxjlvnjoansda
+    
       
+      //  ElevatedButton(onPressed: ()=>print(Products), child: Text("Print Products"),)
+
+      //fhaoshodiaosnfask
       
 
     //  Container(child: ItemsWidget()),
@@ -302,6 +339,31 @@ class _HomePageState extends State<HomePage>{
 
         ],
         ),
+        ),
+          SizedBox(height: 10,),
+
+      Expanded(
+          //  margin: const EdgeInsets.only(bottom: 15.0),
+          // height: h*0.08,
+        child: GridView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: Products.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
+          itemBuilder: (_,index) {
+            return Card(
+              elevation: 3,
+              child: Column(
+                children: [
+                  AspectRatio(aspectRatio: 2 ,child: Container(color: Color.fromARGB(255, 164, 150, 56),child: Image.network(Products[index]["image"][0], height: 30,width: 30,))),
+                  Text("${Products[index]["description"]}"),
+               
+                  Text("${Products[index]["name"]}"),
+                  Text("${Products[index]["price"].toString()}"),
+
+                ],),
+            );
+          
+        }),
         ),
         //
       //  Expanded(
