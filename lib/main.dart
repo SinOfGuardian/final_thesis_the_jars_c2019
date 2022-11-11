@@ -1,5 +1,6 @@
 import 'package:final_thesis_the_jars_c2019/database/auth_controller.dart';
 import 'package:final_thesis_the_jars_c2019/pages/CartPage.dart';
+import 'package:final_thesis_the_jars_c2019/pages/FavoritePage.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Homepage.dart';
 import 'package:final_thesis_the_jars_c2019/pages/ItemPage.dart';
 import 'package:final_thesis_the_jars_c2019/screens/splash_screen.dart';
@@ -34,9 +35,10 @@ class MyApp extends StatelessWidget {
        "/" : (context) => LoginPage(),
          "login_Page" : (context) => LoginPage(),
          "signup_Page" : (context) => SignUpPage(),
-        "homePage" : (context) => HomePage(),
-        "cartPage" : (context) => CartPage(),
-        "itemPage" : (context) => ItemPage(),
+          "homePage" : (context) => HomePage(),
+          "cartPage" : (context) => CartPage(),
+          "itemPage" : (context) => ItemPage(),
+          "favoritePage" : (context) => favoritPage(),
       },
     );
   }

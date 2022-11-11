@@ -1,23 +1,32 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-class Product{
-  final String name;
-  final String image;
-  final String description;
-  final double price;
+// class product{
+//     String? description;
+//    String? image;
+//    String? name;
+//    String? price;
+ 
+//   product({
+//      this.name, 
+//      this.image,
+//      this.description, 
+//      this.price
+//     });
 
-  Product({
-    required this.image,
-    required this.name, 
-    required this.description, 
-    required this.price
-    });
+// //   product.fromMap(DocumentSnapsshot data){
+   
+// //     description = data["description"];
+// //     image = data["image"];
+// //     name = data["name"];
+// //     price = data["price"];
+   
+// // }
 
-    factory Product.fromJson(Map<String, dynamic> json){
-      return Product(
-        image: json['image'], 
-        name: json['name'], 
-        description: json['description'], 
-        price: json['price'],);
-    }
-}
+//     // factory Product.fromJson(Map<String, dynamic> json){
+//     //   return Product(
+//     //     image: json['image'], 
+//     //     name: json['name'], 
+//     //     description: json['description'], 
+//     //     price: json['price'],);
+//     // }
+// //}

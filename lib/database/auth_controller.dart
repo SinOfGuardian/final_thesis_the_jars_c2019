@@ -6,7 +6,6 @@ import 'package:final_thesis_the_jars_c2019/pages/login_page.dart';
 import 'package:final_thesis_the_jars_c2019/pages/welcome_page.dart';
 import 'package:final_thesis_the_jars_c2019/widgets/customSnackBar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:final_thesis_the_jars_c2019/database/auth_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +35,11 @@ class AuthController extends GetxController{
         Get.offAll(()=>LoginPage());
       }else{
        //Get.offAll(()=>WelcomehomePage());
-       //Get.offAll(()=>WelcomePage());
-        Get.offAll(()=>HomePage());
-        // Get.offAll(()=>HomePagePage());
+       Get.offAll(()=>WelcomePage());
+       //Get.offAll(()=>HomePage());
+      // Get.offAll(()=>HomePagePage());
+      //Get.offAll(() => customBottomNavBar());
+      // Get.offAll(()=>customBottomNavBar());
       }
     }
 
@@ -82,22 +83,7 @@ class AuthController extends GetxController{
 
         await auth.signInWithEmailAndPassword(email: email, password: password);
       }catch(e){
-        // Get.snackbar("About Login", "Login Message",
-        // backgroundColor: Colors.redAccent,
-        // snackPosition: SnackPosition.BOTTOM,
-        // titleText: Text(
-        //   "Login Failed",
-        //   style: TextStyle(
-        //     color: Colors.white,
-        //   ),
-        // ),
-        // messageText: Text(
-        //   e.toString(),
-        //   style: TextStyle(
-        //     color: Colors.white
-        //   ),
-        // )
-        // );
+   
 
          CustomSnackBar.showSnackBar(
                   context: Get.context,

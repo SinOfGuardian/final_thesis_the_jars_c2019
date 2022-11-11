@@ -1,8 +1,12 @@
 import 'dart:ui';
 
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:final_thesis_the_jars_c2019/database/DatabaseManager.dart';
+import 'package:final_thesis_the_jars_c2019/pages/CartPage.dart';
+import 'package:final_thesis_the_jars_c2019/pages/ProfileInfoPage.dart';
 import 'package:final_thesis_the_jars_c2019/readData/get_categories.dart';
+import 'package:final_thesis_the_jars_c2019/app/customBottomNavBar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +18,8 @@ import '../model/Product.dart';
 import 'package:final_thesis_the_jars_c2019/widgets/CategoriesWidget.dart';
 import 'package:final_thesis_the_jars_c2019/widgets/HomeAppBar.dart';
 
+import 'FavoritePage.dart';
+
 
 class HomePage extends StatefulWidget{
   @override
@@ -22,6 +28,11 @@ class HomePage extends StatefulWidget{
 // Product shirtdata;
 // Product Suitdata;
 class _HomePageState extends State<HomePage>{
+  //****bottom navabar
+  // final PageController _pageController = PageController();
+  // List<Widget> _screens = [favoritPage(), CartPage(), ProfileinFo()];
+  // void _onPageChanged(int index){}
+// */
     List Products = [];
   List categoriesIDs = [];
    var _firestoreInstance = FirebaseFirestore.instance;
@@ -38,7 +49,6 @@ class _HomePageState extends State<HomePage>{
     .get()
     .then(
       (snapshot) => snapshot.docs.forEach((document) {
-        print(document.reference);
         categoriesIDs.add(document.reference.id);
        }),
       );
@@ -48,7 +58,7 @@ class _HomePageState extends State<HomePage>{
   
 
  
-  
+
 
    fetchProducts() async{
 
@@ -63,17 +73,19 @@ class _HomePageState extends State<HomePage>{
             "image":productget.docs[i]['image'],
             "name":productget.docs[i]['name'],
             "price":productget.docs[i]['price'],
+         
 
-          //             productget.docs[i]["description"],
+          //  productget.docs[i]["description"],
           // productget.docs[i]["image"],
           // productget.docs[i]["name"],
           // productget.docs[i]["price"],
           }
         );
-       print(productget.docs[i]["image"]);
+   //    print('image');
       }
     });
-    return productget.docs;
+   return productget.docs;
+    
   }
 
 
@@ -91,33 +103,41 @@ class _HomePageState extends State<HomePage>{
   //    }
   // }
 
- @override
-  void initState(){
-    getcategoriesIDs();
-    //fetchcategories();
-     //fetchDatabaseList();
+//  @override
+//   void initState(){
+//     getcategoriesIDs();
+//     //fetchcategories();
+//      //fetchDatabaseList();
 
-     fetchProducts();
-    //TODO: implement initState
-    super.initState();
-  }
+//      fetchProducts();
+//     //TODO: implement initState
+//     super.initState();
+//   }
 
  
 
+
+  
+  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context ){
 
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: ListView(children: [
+      
+      body: ListView(
+         physics: NeverScrollableScrollPhysics(),
+         children: [
+
         HomeAppBar(),
         Container(
           
           //remporary height
           //height: 500,
-          padding: EdgeInsets.only(top: 10),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.only(top: 10),
+          decoration: const BoxDecoration(
             color: Color.fromARGB(255, 247, 232, 212),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(35),
@@ -128,8 +148,8 @@ class _HomePageState extends State<HomePage>{
 
           //Search Widget
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 15),
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            margin: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             height: 50,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -137,27 +157,35 @@ class _HomePageState extends State<HomePage>{
             ),
             child: Row(
               children: [
+                 const Icon(
+                  Icons.search,
+                  size: 24,
+                  color: Color.fromARGB(255, 190, 143, 77),),
               Container(
-                margin: EdgeInsets.only(left: 5),
+               
+                margin: const EdgeInsets.only(left: 5),
                 height: 50,
                 width: 200,
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
+                   
                     border: InputBorder.none,
                     hintText: "Search here...",
                   ),
                 ),
               ),
-              Spacer(),
-              Icon(
+              const Spacer(),
+              const Icon(
                 Icons.mic,
                 size: 24,
                 color: Color.fromARGB(255, 190, 143, 77),
                 
               ),
+             //   Navigator.push(context, route),
+
                    
-              Padding(
-                padding: const EdgeInsets.all(10.0),
+              const Padding(
+                padding: EdgeInsets.all(10.0),
                 child: Icon(
                   Icons.camera_alt,
                   size: 24,
@@ -168,9 +196,10 @@ class _HomePageState extends State<HomePage>{
                
             ],),
           ),
+          
 
        
-        SizedBox(height: 10,),
+        const SizedBox(height: 10,),
       
           // Expanded(
           //   child: GridView.builder(  
@@ -196,8 +225,9 @@ class _HomePageState extends State<HomePage>{
           //     }),
           //     ),
           //GOOD
+
           CategoriesWidget(),
-  
+         
       //  Container(
         
       //  margin: const EdgeInsets.only(bottom: 15.0),
@@ -280,8 +310,8 @@ class _HomePageState extends State<HomePage>{
         //******************* */
         Container(
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          child: Text(
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          child: const Text(
             "Recent Product",
             style: TextStyle(
               fontSize: 22,
@@ -340,31 +370,63 @@ class _HomePageState extends State<HomePage>{
         ],
         ),
         ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
 
-      Expanded(
-          //  margin: const EdgeInsets.only(bottom: 15.0),
-          // height: h*0.08,
-        child: GridView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: Products.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
-          itemBuilder: (_,index) {
-            return Card(
-              elevation: 3,
-              child: Column(
-                children: [
-                  AspectRatio(aspectRatio: 2 ,child: Container(color: Color.fromARGB(255, 164, 150, 56),child: Image.network(Products[index]["image"][0], height: 30,width: 30,))),
-                  Text("${Products[index]["description"]}"),
-               
-                  Text("${Products[index]["name"]}"),
-                  Text("${Products[index]["price"].toString()}"),
-
-                ],),
-            );
-          
-        }),
-        ),
+      StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('product').snapshots(),
+        builder: (context, snapshot) {
+          return (snapshot.connectionState == ConnectionState.waiting)
+         
+          ?const Center(
+            // color: Colors.amber,
+            //    margin: const EdgeInsets.only(bottom: 15.0),
+            //    width: double.infinity,
+            // height: h*0.60,
+           child:CircularProgressIndicator(),
+          )
+           : Container(
+            color: Colors.greenAccent,
+                margin: const EdgeInsets.only(bottom: 15.0),
+               width: double.infinity,
+            height: h*0.60,
+             child: GridView.builder(
+                
+                scrollDirection: Axis.horizontal,
+                itemCount: Products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
+                itemBuilder: (_,index) {
+                var Products = snapshot.data!.docs[index].data() as Map<String, dynamic>;
+                  return Card(
+                      elevation: 3,
+                     
+                      child: Center(
+                        
+                        child: Column(
+                          
+                          children: [
+                            
+                         Image.network("${Products[index]["image"][0]}",),
+                             
+                            AspectRatio(aspectRatio: 2 ,child: Container(color: Color.fromARGB(255, 164, 150, 56),child: Image.asset("assets/images/1.png", height: 70,width: 70,))),
+                     
+                            Center(child: Text("${Products[index]["description"]}")),
+                  
+                            Text("${Products[index]["name"]}", style:
+                            
+                              const TextStyle(color: Color.fromARGB(255, 164, 150, 56), 
+                             ),),
+                            Text(Products[index]["price"].toString()),
+                          
+                          ],),
+                      ),
+                   
+                  );
+                
+              }),
+           );
+         
+        }
+      ),
         //
       //  Expanded(
       //  // scrollDirection: Axis.horizontal, 
@@ -391,48 +453,73 @@ class _HomePageState extends State<HomePage>{
       //         }),
       //         ),
 //end
+     // customBottomNavBar(),
        ],
       ),
-      
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        onTap: (index){},
-        height: 50,
-        color: Color.fromARGB(255, 190, 143, 77),
-        items: [
-          Icon(
-            Icons.home,
-            size: 30,
-            color: Colors.white,
-          ),
-          
-           Icon(
-            CupertinoIcons.heart_fill,
-            size: 30,
-            color: Colors.white,
-            ),
-          
-            // Icon(
-            // Icons.shopping_cart_checkout,
-            // size: 30,
-            // color: Colors.white,
-            // ),
     
-           Icon(
-            CupertinoIcons.person_alt,
-            size: 30,
-            color: Colors.white,
-          ),
+ 
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   backgroundColor: Colors.transparent,
+      //   onTap: onItemTapped,
+        
+      //   // backgroundColor: Color.fromARGB(0, 49, 129, 84),
+      //   // selectedIndex: _pageController,
+      //   // onTap: (index){
+      //   //    setState(() {
+      //   //       _pageController = index;
+      //   //     });
+      //   // },
+      //   height: 50,
+      //   color: const Color.fromARGB(255, 190, 143, 77),
+      //   items:  const[
+      //     Icon(
+      //       Icons.home,
+      //       size: 30,
+      //       color: Colors.white,
+      //     ),
+       
+          
+      //      Icon(
+      //       CupertinoIcons.heart_fill,
+      //       size: 30,
+      //       color: Colors.white,
+      //       ),
+          
+      //       Icon(
+      //       Icons.shopping_cart_checkout,
+      //       size: 30,
+      //       color: Colors.white,
+      //       ),
+    
+      //      Icon(
+      //       CupertinoIcons.person_alt,
+      //       size: 30,
+      //       color: Colors.white,
+           
+      //     ),
 
-          //  Icon(
-          //   Icons.list,
-          //   size: 30,
-          //   color: Colors.white,
-          // ),
-        ],
-      ),
+      //     //  Icon(
+      //     //   Icons.list,
+      //     //   size: 30,
+      //     //   color: Colors.white,
+      //     // ),
+          
+      //   ],
+        
+      // ),
+     
+    
+   
+        
     );
+    
   }
+  
+
+  // void onItemTapped(int selectedIndex ){
+  //   _pageController.jumpToPage(selectedIndex);
+  //   print(selectedIndex);
+  // }
 }
 
 

@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../database/DatabaseManager.dart';
-class ItemsWidget extends StatelessWidget{
-  // void getData()async{}
-  // final data =  await Firebase.instance.collection("categories").doc('categories').get();
-  //   snapshot = data;
+class ItemsWidget extends StatefulWidget{
+  @override
+  State<ItemsWidget> createState() => _ItemsWidgetState();
+}
 
+class _ItemsWidgetState extends State<ItemsWidget> {
+  List Products = [];
+  // void getData()async{}
   @override
   Widget build(BuildContext context){
     return GridView.count(
