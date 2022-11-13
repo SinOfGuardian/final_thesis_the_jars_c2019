@@ -1,49 +1,34 @@
 {
   "project_info": {
-    "project_number": "679827192674",
-    "project_id": "thejars-firebase",
-    "storage_bucket": "thejars-firebase.appspot.com"
+    "project_number": "587527929234",
+    "project_id": "the-jars-final-thesis",
+    "storage_bucket": "the-jars-final-thesis.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:679827192674:android:6ab712fef48c97a4c50a3b",
+        "mobilesdk_app_id": "1:587527929234:android:2116d87d0b5f9b3465954b",
         "android_client_info": {
           "package_name": "com.example.final_thesis_the_jars_c2019"
         }
       },
       "oauth_client": [
         {
-          "client_id": "679827192674-4uqstjpqkh7mg5cvos2ecr6tkndptnn5.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.final_thesis_the_jars_c2019",
-            "certificate_hash": "dbdc2ad2f28336c6efc135f0d5ffd0db5225375b"
-          }
-        },
-        {
-          "client_id": "679827192674-h4gnlabeboq2scuvg30oo7sa824pl3c8.apps.googleusercontent.com",
+          "client_id": "587527929234-4b2sap446fod9neokls67trmdu481fd6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAu30MicvkhYerGnoMD1JgnHXHmtat2WWk"
+          "current_key": "AIzaSyCzuM_UgJn-Z8AAuzXQSvLi_YjOh9Jx4Tk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "679827192674-h4gnlabeboq2scuvg30oo7sa824pl3c8.apps.googleusercontent.com",
+              "client_id": "587527929234-4b2sap446fod9neokls67trmdu481fd6.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "679827192674-o0uf4vlom4n9qseo7vopb0mclu0050vv.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.finalThesisTheJarsC2019"
-              }
             }
           ]
         }

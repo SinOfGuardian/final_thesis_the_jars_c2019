@@ -1,4 +1,5 @@
 
+import 'package:final_thesis_the_jars_c2019/app/customBottomNavBar.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Homepage.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Homepage_Page.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Welcomehome_page.dart';
@@ -34,8 +35,8 @@ class AuthController extends GetxController{
         print("Login page");
         Get.offAll(()=>LoginPage());
       }else{
-       //Get.offAll(()=>WelcomehomePage());
-       Get.offAll(()=>WelcomePage());
+       Get.offAll(()=>WelcomehomePage());
+       //Get.offAll(()=>WelcomePage());
        //Get.offAll(()=>HomePage());
       // Get.offAll(()=>HomePagePage());
       //Get.offAll(() => customBottomNavBar());
@@ -48,11 +49,11 @@ class AuthController extends GetxController{
         await auth.createUserWithEmailAndPassword(email: email, password: password);
         
       } on FirebaseAuthException catch(e){
-        // if(e.code == 'weakpassword'){
-        //   print('The password provided is too week');
-        // } else if  (e.code == 'email-already-in-use') {
-        //   print('The account already ixist for that email');
-        //   }
+        if(e.code == 'weakpassword'){
+          print('The password provided is too week');
+        } else if  (e.code == 'email-already-in-use') {
+          print('The account already ixist for that email');
+          }
       
         Get.snackbar("About User", "User Message",
         backgroundColor: Colors.redAccent,

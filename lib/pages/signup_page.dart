@@ -96,7 +96,7 @@ class _SignUpPageState extends State<SignUpPage>{
               child: Column(
                 children: [
                   SizedBox( height: h*0.16,),
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundColor: Colors.white70,
                     radius: 40,
                     backgroundImage: AssetImage(
@@ -127,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage>{
                           
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -142,17 +142,17 @@ class _SignUpPageState extends State<SignUpPage>{
                           
                           hintText: "First Name ",
                           
-                          prefixIcon: Icon(Icons.person, color: Color.fromARGB(255, 170, 108, 85),),
+                          prefixIcon: const Icon(Icons.person, color: Color.fromARGB(255, 170, 108, 85),),
                           
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(50),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color.fromARGB(255, 164, 150, 56),
                               width: 1.0,
                               ),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.white,
                               width: 1.0,
                               ),
@@ -163,7 +163,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
 
                    Container(
                     height: h*0.08,
@@ -174,7 +174,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         BoxShadow(
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -185,17 +185,17 @@ class _SignUpPageState extends State<SignUpPage>{
               
                       decoration: InputDecoration(
                         hintText: "Last Name ",
-                        prefixIcon: Icon(Icons.people, color: Color.fromARGB(255, 170, 108, 85),),
+                        prefixIcon: const Icon(Icons.people, color: Color.fromARGB(255, 170, 108, 85),),
                         
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color.fromARGB(255, 164, 150, 56),
                             width: 1.0,
                             ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.white,
                             width: 1.0,
                             ),
@@ -205,7 +205,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                    Container(
                     height: h*0.08,
                     decoration: BoxDecoration(  
@@ -215,7 +215,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         BoxShadow(
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -225,17 +225,17 @@ class _SignUpPageState extends State<SignUpPage>{
                        keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: "Age ",
-                        prefixIcon: Icon(Icons.numbers, color: Color.fromARGB(255, 170, 108, 85),),
+                        prefixIcon: const Icon(Icons.numbers, color: Color.fromARGB(255, 170, 108, 85),),
                         
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color.fromARGB(255, 164, 150, 56),
                             width: 1.0,
                             ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.white,
                             width: 1.0,
                             ),
@@ -245,7 +245,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Container(
                     height: h*0.08,
                     decoration: BoxDecoration(  
@@ -255,7 +255,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         BoxShadow(
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -265,17 +265,17 @@ class _SignUpPageState extends State<SignUpPage>{
                       
                       decoration: InputDecoration(
                         hintText: "Gender",
-                        prefixIcon: Icon(Icons.transgender, color: Color.fromARGB(255, 170, 108, 85),),
+                        prefixIcon: const Icon(Icons.transgender, color: Color.fromARGB(255, 170, 108, 85),),
                         
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color.fromARGB(255, 164, 150, 56),
                             width: 1.0,
                             ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.white,
                             width: 1.0,
                             ),
@@ -285,7 +285,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Container(
                     height: h*0.08,
                     decoration: BoxDecoration(  
@@ -295,7 +295,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         BoxShadow(
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -305,17 +305,17 @@ class _SignUpPageState extends State<SignUpPage>{
                       keyboardType: TextInputType.streetAddress,
                       decoration: InputDecoration(
                         hintText: "Address",
-                        prefixIcon: Icon(Icons.location_city, color: Color.fromARGB(255, 170, 108, 85),),
+                        prefixIcon: const Icon(Icons.location_city, color: Color.fromARGB(255, 170, 108, 85),),
                         
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color.fromARGB(255, 164, 150, 56),
                             width: 1.0,
                             ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.white,
                             width: 1.0,
                             ),
@@ -325,7 +325,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
 
                   Container(
                     height: h*0.08,
@@ -336,7 +336,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         BoxShadow(
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -346,17 +346,17 @@ class _SignUpPageState extends State<SignUpPage>{
                        keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: "Email",
-                        prefixIcon: Icon(Icons.email, color: Color.fromARGB(255, 170, 108, 85),),
+                        prefixIcon: const Icon(Icons.email, color: Color.fromARGB(255, 170, 108, 85),),
                         
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color.fromARGB(255, 164, 150, 56),
                             width: 1.0,
                             ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.white,
                             width: 1.0,
                             ),
@@ -366,7 +366,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
       
                   Container(
                     height: h*0.08,
@@ -377,7 +377,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         BoxShadow(
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -396,18 +396,18 @@ class _SignUpPageState extends State<SignUpPage>{
                             _isHidden
                             ?Icons.visibility_off : Icons.visibility),
                           ),
-                        prefixIcon: Icon(Icons.lock, color: Color.fromARGB(255, 170, 108, 85),
+                        prefixIcon: const Icon(Icons.lock, color: Color.fromARGB(255, 170, 108, 85),
                         ),
                         
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color.fromARGB(255, 164, 150, 56),
                             
                             )
                         ),
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                             color: Colors.white,
                             width: 1.0,
                             ),
@@ -416,7 +416,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
 
                     Container(
                     height: h*0.08,
@@ -427,7 +427,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         BoxShadow(
                           blurRadius: 10,
                           spreadRadius: 7,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2)
                         )
                       ]
@@ -446,18 +446,18 @@ class _SignUpPageState extends State<SignUpPage>{
                             _isconfirmHidden
                             ?Icons.visibility_off : Icons.visibility),
                           ),
-                        prefixIcon: Icon(Icons.lock, color: Color.fromARGB(255, 170, 108, 85),
+                        prefixIcon: const Icon(Icons.lock, color: Color.fromARGB(255, 170, 108, 85),
                         ),
                         
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color.fromARGB(255, 164, 150, 56),
                             
                             )
                         ),
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                             color: Colors.white,
                             width: 1.0,
                             ),
@@ -467,7 +467,7 @@ class _SignUpPageState extends State<SignUpPage>{
                     ),
                   ),
                   
-                  SizedBox(height: 25,),
+                  const SizedBox(height: 25,),
                  
             GestureDetector(
               onTap: (){
@@ -496,14 +496,14 @@ class _SignUpPageState extends State<SignUpPage>{
                 height: h*0.07,
                 decoration:  BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  image:DecorationImage(
+                  image:const DecorationImage(
                     image: AssetImage(
                     "assets/images/loginbtn1.png"
                     ),
                     fit: BoxFit.cover
                   ),
                 ),
-                child: Center(
+                child: const Center(
                   child: Text(
                         "Sign Up",
                         style: TextStyle(
@@ -547,7 +547,7 @@ class _SignUpPageState extends State<SignUpPage>{
                
               ),),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
            Padding(
              padding: const EdgeInsets.only(left: 75.0),
              child: Wrap(
@@ -559,7 +559,7 @@ class _SignUpPageState extends State<SignUpPage>{
                       padding: const EdgeInsets.all(5.0),
                       child: CircleAvatar(
                         radius: 22,
-                        backgroundColor: Color.fromARGB(255, 212, 118, 84),
+                        backgroundColor: const Color.fromARGB(255, 212, 118, 84),
                         child: CircleAvatar(
                           radius: 18,
                           backgroundImage: AssetImage(
@@ -575,7 +575,7 @@ class _SignUpPageState extends State<SignUpPage>{
              ]),
             ),
       
-            SizedBox(height: 50,),
+            const SizedBox(height: 50,),
           
           ],
         ),

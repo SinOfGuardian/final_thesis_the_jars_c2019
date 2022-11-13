@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage>{
   // List<Widget> _screens = [favoritPage(), CartPage(), ProfileinFo()];
   // void _onPageChanged(int index){}
 // */
-    List Products = [];
+  List Products = [];
   List categoriesIDs = [];
    var _firestoreInstance = FirebaseFirestore.instance;
 
@@ -41,19 +41,19 @@ class _HomePageState extends State<HomePage>{
   TextEditingController _descriptionController = TextEditingController();
   TextEditingController _priceController = TextEditingController();
 
-  Future getcategoriesIDs() async{
+  // Future getcategoriesIDs() async{
     
-    await FirebaseFirestore.instance
-    .collection('categories')
-   // .orderBy('age ', descending: false)
-    .get()
-    .then(
-      (snapshot) => snapshot.docs.forEach((document) {
-        categoriesIDs.add(document.reference.id);
-       }),
-      );
+  //   await FirebaseFirestore.instance
+  //   .collection('categories')
+  //  // .orderBy('age ', descending: false)
+  //   .get()
+  //   .then(
+  //     (snapshot) => snapshot.docs.forEach((document) {
+  //       categoriesIDs.add(document.reference.id);
+  //      }),
+  //     );
       
-  }
+  // }
   
   
 
@@ -62,17 +62,15 @@ class _HomePageState extends State<HomePage>{
 
    fetchProducts() async{
 
-    QuerySnapshot productget = 
-    await _firestoreInstance.collection("product").get();
+    QuerySnapshot productget = await _firestoreInstance.collection('product').get();
     setState(() {
       for (int i = 0; i < productget.docs.length; i++){
         Products.add(
           {
-            
-            "description":productget.docs[i]['description'],
-            "image":productget.docs[i]['image'],
-            "name":productget.docs[i]['name'],
-            "price":productget.docs[i]['price'],
+            "item_description":productget.docs[i]['item_description'],
+            "item_image":productget.docs[i]['item_image'],
+            "item_name":productget.docs[i]['item_name'],
+            "item_price":productget.docs[i]['item_price'],
          
 
           //  productget.docs[i]["description"],
@@ -81,7 +79,7 @@ class _HomePageState extends State<HomePage>{
           // productget.docs[i]["price"],
           }
         );
-   //    print('image');
+      // print('image');
       }
     });
    return productget.docs;
@@ -105,12 +103,12 @@ class _HomePageState extends State<HomePage>{
 
 //  @override
 //   void initState(){
-//     getcategoriesIDs();
+//    // getcategoriesIDs();
 //     //fetchcategories();
 //      //fetchDatabaseList();
 
 //      fetchProducts();
-//     //TODO: implement initState
+    
 //     super.initState();
 //   }
 
@@ -366,25 +364,22 @@ class _HomePageState extends State<HomePage>{
     //         return  ItemsWidget();
     //       }
     //     ),
-
-        ],
-        ),
-        ),
-          const SizedBox(height: 10,),
-
+    ////////////////////////////////////////////////////////
+    ///
+    
       StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('product').snapshots(),
         builder: (context, snapshot) {
-          return (snapshot.connectionState == ConnectionState.waiting)
+          return (snapshot.connectionState == ConnectionState.done)
          
-          ?const Center(
+          ? const Center(
             // color: Colors.amber,
             //    margin: const EdgeInsets.only(bottom: 15.0),
             //    width: double.infinity,
             // height: h*0.60,
            child:CircularProgressIndicator(),
           )
-           : Container(
+          : Container(
             color: Colors.greenAccent,
                 margin: const EdgeInsets.only(bottom: 15.0),
                width: double.infinity,
@@ -404,18 +399,18 @@ class _HomePageState extends State<HomePage>{
                         child: Column(
                           
                           children: [
-                            
-                         Image.network("${Products[index]["image"][0]}",),
+                            Image.network(Products[index]["item_image"][0]),
+                           // Image.network("${Products[index]["item_image"][0]}",),
                              
-                            AspectRatio(aspectRatio: 2 ,child: Container(color: Color.fromARGB(255, 164, 150, 56),child: Image.asset("assets/images/1.png", height: 70,width: 70,))),
+                            // AspectRatio(aspectRatio: 2 ,child: Container(color: Color.fromARGB(255, 164, 150, 56),child: Image.asset("assets/images/1.png", height: 70,width: 70,))),
                      
-                            Center(child: Text("${Products[index]["description"]}")),
+                            Center(child: Text("${Products[index]["item_description"]}")),
                   
-                            Text("${Products[index]["name"]}", style:
+                            Text("${Products[index]["item_name"]}", style:
                             
                               const TextStyle(color: Color.fromARGB(255, 164, 150, 56), 
                              ),),
-                            Text(Products[index]["price"].toString()),
+                            Text(Products[index]["item_price"].toString()),
                           
                           ],),
                       ),
@@ -427,6 +422,13 @@ class _HomePageState extends State<HomePage>{
          
         }
       ),
+      ///////////////////////////////
+        ],
+        ),
+        ),
+         // const SizedBox(height: 10,),
+
+
         //
       //  Expanded(
       //  // scrollDirection: Axis.horizontal, 
