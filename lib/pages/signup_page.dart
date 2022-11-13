@@ -472,7 +472,7 @@ class _SignUpPageState extends State<SignUpPage>{
             GestureDetector(
               onTap: (){
                 if (passwordConfirmed()){
-                  _useradded();
+                  saveUpdateEmployee();
                 
                   CustomFullScreenDialog.showDialog();
                   CustomSnackBar.showSnackBar(
@@ -593,7 +593,7 @@ class _SignUpPageState extends State<SignUpPage>{
       _isconfirmHidden = !_isconfirmHidden;
     });
   }
-   void _useradded(){
+   void saveUpdateEmployee(){
                   AuthController.instance.register(emailController.text.trim(), passwordController.text.trim(),);
 
                   addUserDetails(

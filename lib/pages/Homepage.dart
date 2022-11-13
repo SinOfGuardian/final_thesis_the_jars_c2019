@@ -370,7 +370,7 @@ class _HomePageState extends State<HomePage>{
       StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('product').snapshots(),
         builder: (context, snapshot) {
-          return (snapshot.connectionState == ConnectionState.done)
+          return (snapshot.connectionState == ConnectionState.waiting)
          
           ? const Center(
             // color: Colors.amber,
@@ -399,18 +399,18 @@ class _HomePageState extends State<HomePage>{
                         child: Column(
                           
                           children: [
-                            Image.network(Products[index]["item_image"][0]),
+                            Image.network(Products["item_image"][0]),
                            // Image.network("${Products[index]["item_image"][0]}",),
                              
                             // AspectRatio(aspectRatio: 2 ,child: Container(color: Color.fromARGB(255, 164, 150, 56),child: Image.asset("assets/images/1.png", height: 70,width: 70,))),
                      
-                            Center(child: Text("${Products[index]["item_description"]}")),
+                            Center(child: Text("${Products["item_description"]}")),
                   
-                            Text("${Products[index]["item_name"]}", style:
+                            Text("${Products["item_name"]}", style:
                             
                               const TextStyle(color: Color.fromARGB(255, 164, 150, 56), 
                              ),),
-                            Text(Products[index]["item_price"].toString()),
+                            Text(Products["item_price"].toString()),
                           
                           ],),
                       ),

@@ -18,23 +18,23 @@ class HomePagePage extends StatefulWidget {
 }
 
 class _HomePagePageState extends State<HomePagePage> {
-   List categoriesIDs = [];
+   List productIDs = [];
 
-  Future getcategoriesIDs() async{
+  Future getproductIDs() async{
     await FirebaseFirestore.instance
-    .collection('categories')
+    .collection('product')
    // .orderBy('age ', descending: false)
     .get()
     .then(
       (snapshot) => snapshot.docs.forEach((document) {
         print(document.reference);
-        categoriesIDs.add(document.reference.id);
+        productIDs.add(document.reference.id);
        }),
       );
   }
    @override
   void initState(){
-    getcategoriesIDs();
+    getproductIDs();
     //fetchcategories();
      //fetchDatabaseList();
     //TODO: implement initState
@@ -134,31 +134,41 @@ class _HomePagePageState extends State<HomePagePage> {
                
             ],),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10, width: 10,),
 
         
       ]),
         ),
-          SingleChildScrollView(
-               
+          Container(
+                color: Colors.greenAccent,
+                margin: const EdgeInsets.only(bottom: 15.0),
+               width: double.infinity,
+                height: h*0.80,
                child: FutureBuilder(
                 
-                future: getcategoriesIDs(),
+                future: getproductIDs(),
                 builder: (context, snapshot) {
-                  return ListView.builder(
-                  
+                  return GridView.builder(
+                    shrinkWrap: true,
+                  // physics: NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
-                  
-                  shrinkWrap: true,
-                  itemCount: categoriesIDs.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
+               
+                  // shrinkWrap: true,
+                  itemCount: productIDs.length,
                   itemBuilder: (context, index){
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ListTile(
-                        title: GetCategories(docCategory: categoriesIDs[index]),
-                        tileColor: Colors.grey[200],
-                ),
-                    );
+                    return
+                    
+                   
+                      //physics: NeverScrollableScrollPhysics(),
+                       Container(child: GetCategories(docProduct: productIDs[index]),);
+                //      Padding(
+                //       padding: const EdgeInsets.all(4.0),
+                //       child: ListTile(
+                //         title: GetCategories(docCategory: categoriesIDs[index]),
+                //         tileColor: Colors.grey[200],
+                // ),getDownloadURL
+                   // );
                });
                   
                 }),
@@ -168,4 +178,5 @@ class _HomePagePageState extends State<HomePagePage> {
         
           );
   }
+ 
 }

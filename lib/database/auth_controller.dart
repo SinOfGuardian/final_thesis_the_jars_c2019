@@ -32,15 +32,15 @@ class AuthController extends GetxController{
 
     _initialScreen(User? user){
       if(user==null){
-        print("Login page");
+        //print("Login page");
         Get.offAll(()=>LoginPage());
       }else{
-       Get.offAll(()=>WelcomehomePage());
+      //  Get.offAll(()=>WelcomehomePage());
        //Get.offAll(()=>WelcomePage());
        //Get.offAll(()=>HomePage());
       // Get.offAll(()=>HomePagePage());
       //Get.offAll(() => customBottomNavBar());
-      // Get.offAll(()=>customBottomNavBar());
+      Get.offAll(()=>customBottomNavBar());
       }
     }
 

@@ -39,7 +39,7 @@ dependencies:
 
   firebase_auth: ^4.1.0
   firebase_core: ^2.1.1
-  firebase_database: ^10.0.4
+  #firebase_database: ^10.0.4
 
   bottom_navy_bar: ^6.0.0
   badges: ^2.0.3
