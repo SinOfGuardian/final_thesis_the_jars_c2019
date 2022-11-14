@@ -3,7 +3,7 @@
 import 'package:final_thesis_the_jars_c2019/pages/CartPage.dart';
 import 'package:final_thesis_the_jars_c2019/pages/FavoritePage.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Homepage.dart';
-import 'package:final_thesis_the_jars_c2019/pages/Homepage_Page.dart';
+import 'package:final_thesis_the_jars_c2019/pages/homeitemWidget.dart';
 import 'package:final_thesis_the_jars_c2019/pages/ProfileInfoPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class customBottomNavBar extends StatefulWidget {
 class _customBottomNavBarState extends State<customBottomNavBar> {
 int _page = 0;
  final PageController _pageController = PageController();
-  List<Widget> _screens = [HomePagePage(),favoritPage(), CartPage(), ProfileinFo()];
+  List<Widget> _screens = [HomePage(),favoritPage(), CartPage(), ProfileinFo()];
   void _onPageChanged(int index){}
 
   void _onItemTapped(int selectedIndex){

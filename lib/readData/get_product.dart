@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class GetCategories extends StatelessWidget {
+class GetProducts extends StatelessWidget {
      List productIDs = [];
 
  final String docProduct;
 
- GetCategories({required this.docProduct});
+ GetProducts({required this.docProduct});
 
 
 
@@ -22,7 +22,7 @@ class GetCategories extends StatelessWidget {
     CollectionReference categories_ = FirebaseFirestore.instance.collection('product');
 
        return FutureBuilder<DocumentSnapshot>(
-        
+       
       future: categories_.doc(docProduct).get(), 
       builder: (context, snapshot) {
       if (snapshot.connectionState == ConnectionState.done && snapshot.hasData){
@@ -44,10 +44,19 @@ class GetCategories extends StatelessWidget {
           //    ),
           //    );
      
-            return Container(
+            return (snapshot.connectionState == ConnectionState.waiting)
+         
+          ? const Center(
+            // color: Colors.amber,
+            //    margin: const EdgeInsets.only(bottom: 15.0),
+            //    width: double.infinity,
+            // height: h*0.60,
+           child:CircularProgressIndicator(),
+          )
+          : Container(
               
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.all(5),
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 10,),
+          margin: const EdgeInsets.all(5),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -63,12 +72,12 @@ class GetCategories extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                      Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 190, 143, 77),
+                        color: const Color.fromARGB(255, 190, 143, 77),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Sale",
                         style: TextStyle(
                           fontSize: 14,
@@ -78,7 +87,7 @@ class GetCategories extends StatelessWidget {
                       ),
                     ),
                     
-                         Icon(Icons.favorite_border,
+                         const Icon(Icons.favorite_border,
                          color: Colors.red,
                          ),
                      ],
@@ -89,7 +98,7 @@ class GetCategories extends StatelessWidget {
                     Navigator.pushNamed(context, "itemPage");
                   },
                      child: Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                          child: Image.network("${data["item_image"][0]}",),
                       // child: Image.network('${data["item_image"]}',height: 40, width: 40,),
                       //child: Image.asset("assets/images/1.png", height: 40,width: 40,),
@@ -98,46 +107,49 @@ class GetCategories extends StatelessWidget {
                                      ),
                    ),
                    Flexible(
-                    flex: 5,
+                    // flex: 2,
                     // padding: EdgeInsets.only(bottom: 8),
                     // alignment: Alignment.centerLeft,
                     child: Text('${data["item_name"]}', 
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Color.fromARGB(255, 190, 143, 77),
                       fontWeight: FontWeight.bold,
                       ),
                     ),
                    ), 
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text('${data["item_description"]}',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 190, 143, 77),
-                    ),
-                  ),
-                ),
-                  Padding(
-                  padding:EdgeInsets.symmetric(vertical: 0.8),
+                //   Container(
+                //     alignment: Alignment.centerLeft,
+                //     child: Text('${data["item_description"]}',
+                //     maxLines: 2,
+                //     overflow: TextOverflow.ellipsis,
+                //     style: TextStyle(
+                //       fontSize: 12,
+                //       color: Color.fromARGB(255, 190, 143, 77),
+                //     ),
+                //   ),
+                // ),
+                  // const SizedBox(height: 10,),
+                  Flexible(
+                  
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                             Text("₱ "'${data["item_price"].toString()}',
-                             style: TextStyle(fontSize: 16,
+                             style: const TextStyle(fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 190, 143, 77),
                                ),
                             ),
-                           Icon(
+                           const Icon(
                           Icons.shopping_cart_checkout,
                           color: Color.fromARGB(255, 190, 143, 77),
                           ),
-
+                        
                           ],),
+                          
                       ),
+                       const SizedBox(height: 10,),
                           ],
                       ),
                       
@@ -145,7 +157,7 @@ class GetCategories extends StatelessWidget {
          
               
       }
-      return Text('loading...');
+      return const Text('loading...');
     },);
   
   }

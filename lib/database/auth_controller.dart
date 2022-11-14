@@ -1,7 +1,7 @@
 
 import 'package:final_thesis_the_jars_c2019/app/customBottomNavBar.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Homepage.dart';
-import 'package:final_thesis_the_jars_c2019/pages/Homepage_Page.dart';
+import 'package:final_thesis_the_jars_c2019/pages/homeitemWidget.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Welcomehome_page.dart';
 import 'package:final_thesis_the_jars_c2019/pages/login_page.dart';
 import 'package:final_thesis_the_jars_c2019/pages/welcome_page.dart';

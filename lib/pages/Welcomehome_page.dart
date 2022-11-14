@@ -2,7 +2,7 @@ import 'package:final_thesis_the_jars_c2019/database/auth_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_thesis_the_jars_c2019/model/user_model.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Homepage.dart';
-import 'package:final_thesis_the_jars_c2019/readData/get_categories.dart';
+import 'package:final_thesis_the_jars_c2019/readData/get_product.dart';
 import 'package:final_thesis_the_jars_c2019/readData/get_user_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';

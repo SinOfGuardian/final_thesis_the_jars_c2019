@@ -2,8 +2,9 @@ import 'package:final_thesis_the_jars_c2019/database/auth_controller.dart';
 import 'package:final_thesis_the_jars_c2019/pages/CartPage.dart';
 import 'package:final_thesis_the_jars_c2019/pages/FavoritePage.dart';
 import 'package:final_thesis_the_jars_c2019/pages/Homepage.dart';
-import 'package:final_thesis_the_jars_c2019/pages/ItemPage.dart';
+import 'package:final_thesis_the_jars_c2019/widgets/ItemPage.dart';
 import 'package:final_thesis_the_jars_c2019/screens/splash_screen.dart';
+import 'package:final_thesis_the_jars_c2019/widgets/voiceBottomSheet.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Jars Clothing',
       theme: ThemeData(
      
         primarySwatch: Colors.blue,
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
           "cartPage" : (context) => CartPage(),
           "itemPage" : (context) => ItemPage(),
           "favoritePage" : (context) => favoritPage(),
+          "voicepage" : (context) => VoiceBottomSheet(),
       },
     );
   }
